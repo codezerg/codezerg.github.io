@@ -14,12 +14,43 @@
   <link rel="stylesheet" href="/js/highlightjs/styles/ssms.css" />
   <link rel="stylesheet" href="/js/highlightjs/styles/vs.css" />
   
-  <link rel="stylesheet" href="//unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" />
-
   <script type="text/javascript" src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@latest/build/highlight.min.js"></script>
-  <script type="text/javascript" src="//unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
 
   <script type="text/javascript"> hljs.highlightAll(); </script>
-  <script type="text/javascript"> hljs.addPlugin(new CopyButtonPlugin()); </script>
+
+	<!-- Code to append a click to copy button -->
+	 <script>
+		 var snippets = document.getElementsByTagName('pre');
+		 var numberOfSnippets = snippets.length;
+		 for (var i = 0; i < numberOfSnippets; i++) {
+			 code = snippets[i].getElementsByTagName('code')[0].innerText;
+	 
+			 snippets[i].classList.add('hljs'); // append copy button to pre tag
+	 
+			 snippets[i].innerHTML = '<button class="hljs-copy">Copy</button>' + snippets[i].innerHTML; // append copy button
+	 
+			 snippets[i].getElementsByClassName('hljs-copy')[0].addEventListener("click", function () {
+				 this.innerText = 'Copying..';
+				 if (!navigator.userAgent.toLowerCase().includes('safari')) {
+					 navigator.clipboard.writeText(code);
+				 } else {
+					 prompt("Clipboard (Select: ⌘+a > Copy:⌘+c)", code);
+				 }
+				 this.innerText = 'Copied!';
+				 button = this;
+				 setTimeout(function () {
+					 button.innerText = 'Copy';
+				 }, 1000)
+			 });
+		 }
+	 </script>
+	 <style>
+		 .hljs-copy {
+			 float: right;
+			 cursor: pointer;
+		 }
+	 </style>
+
+
   <!-- end highlight.js support -->
 </head>

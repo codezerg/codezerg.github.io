@@ -19,41 +19,37 @@
   <script type="text/javascript"> hljs.highlightAll(); </script>
 
 	<!-- Code to append a click to copy button -->
-	 <script>
+	<script>
 		document.addEventListener('DOMContentLoaded', function() {
 			var snippets = document.getElementsByTagName('pre');
 			var numberOfSnippets = snippets.length;
 			for (var i = 0; i < numberOfSnippets; i++) {
 				(function(index) {
 					var code = snippets[index].getElementsByTagName('code')[0].innerText;
-
 					snippets[index].classList.add('hljs'); // append copy button to pre tag
-
 					snippets[index].innerHTML = '<button class="hljs-copy">Copy</button>' + snippets[index].innerHTML; // append copy button
-
 					snippets[index].getElementsByClassName('hljs-copy')[0].addEventListener("click", function () {
 						this.innerText = 'Copying..';
-						if (!navigator.userAgent.toLowerCase().includes('safari')) {
-							navigator.clipboard.writeText(code);
-						} else {
-							prompt("Clipboard (Select: ⌘+a > Copy:⌘+c)", code);
-						}
-						this.innerText = 'Copied!';
-						var button = this;
-						setTimeout(function () {
-							button.innerText = 'Copy';
-						}, 1000);
+						navigator.clipboard.writeText(code).then(() => {
+							this.innerText = 'Copied!';
+							setTimeout(() => {
+								this.innerText = 'Copy';
+							}, 1000);
+						}).catch(err => {
+							console.error('Failed to copy text: ', err);
+							this.innerText = 'Copy failed';
+						});
 					});
 				})(i);
 			}
 		});
-	 </script>
-	 <style>
-		 .hljs-copy {
-			 float: right;
-			 cursor: pointer;
-		 }
-	 </style>
+	</script>
+	<style>
+		.hljs-copy {
+			float: right;
+			cursor: pointer;
+		}
+	</style>
 
 
   <!-- end highlight.js support -->

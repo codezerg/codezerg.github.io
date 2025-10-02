@@ -1,0 +1,782 @@
+// Bootstrap 5 Healthcare ERP Theme
+// Professional medical theme using only Bootstrap variable overrides
+// No custom classes - only variable modifications
+
+// Import Google Fonts - Inter
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+// ============================================================================
+// Bootstrap Default Colors (define core colors first)
+// ============================================================================
+
+$white: #fff;
+$black: #000;
+
+// ============================================================================
+// Color System - Medical/Healthcare Palette
+// ============================================================================
+
+// Primary colors - Medical blues for trust and professionalism
+$blue-50: #f0f9ff;
+$blue-100: #e0f2fe;
+$blue-200: #bae6fd;
+$blue-300: #7dd3fc;
+$blue-400: #38bdf8;
+$blue-500: #0ea5e9;
+$blue-600: #0284c7;  // Primary medical blue
+$blue-700: #0369a1;
+$blue-800: #075985;
+$blue-900: #0c4a6e;
+
+// Grays - Clean, clinical grays
+$gray-50: #f8fafc;
+$gray-100: #f1f5f9;
+$gray-200: #e2e8f0;
+$gray-300: #cbd5e1;
+$gray-400: #94a3b8;
+$gray-500: #64748b;
+$gray-600: #475569;
+$gray-700: #334155;
+$gray-800: #1e293b;
+$gray-900: #0f172a;
+
+// Success/Error colors for medical status
+$green-500: #10b981;  // Healthy/success
+$green-600: #059669;
+$red-500: #ef4444;    // Critical/error
+$red-600: #dc2626;
+$yellow-500: #f59e0b; // Warning/attention
+$yellow-600: #d97706;
+
+// Theme color assignments
+$primary: $blue-600;  // Back to original blue
+$secondary: $gray-600;
+$success: $green-500;
+$info: $blue-500;
+$warning: $yellow-500;
+$danger: $red-500;
+$light: $gray-100;
+$dark: $gray-800;
+
+// ============================================================================
+// Typography - Professional medical typography
+// ============================================================================
+
+// Font family - Clean, readable fonts for medical data
+$font-family-sans-serif: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+$font-family-monospace: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+
+// Font sizes - Optimized for data readability
+$font-size-base: 0.9rem;  // Slightly smaller for dense data
+$font-size-sm: 0.8rem;
+$font-size-lg: 1rem;
+
+// Font weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line height for readability
+$line-height-base: 1.4;  // Tighter for data tables
+$line-height-sm: 1.3;
+$line-height-lg: 1.5;
+
+// ============================================================================
+// Spacing - Optimized for dense information display
+// ============================================================================
+
+// Reduce default spacers for more compact layout
+$spacer: 0.75rem;  // Reduced from 1rem
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,   // 0.1875rem
+  2: $spacer * 0.5,    // 0.375rem
+  3: $spacer,          // 0.75rem
+  4: $spacer * 1.5,    // 1.125rem
+  5: $spacer * 2,      // 1.5rem
+  6: $spacer * 3,      // 2.25rem
+);
+
+// ============================================================================
+// Components - Form optimization for data entry
+// ============================================================================
+
+// Form controls
+$input-bg: $white;
+$input-disabled-bg: $gray-100;
+$input-border-color: $gray-300;
+$input-border-width: 1px;
+$input-border-radius: 0.375rem;
+$input-focus-border-color: $primary;
+$input-focus-box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+$input-placeholder-color: $gray-500;
+$input-height: 2.25rem;  // Slightly smaller for dense forms
+$input-font-size: $font-size-base;
+$input-font-weight: $font-weight-normal;
+$input-line-height: $line-height-base;
+$input-padding-y: 0.375rem;
+$input-padding-x: 0.75rem;
+
+// Form labels
+$form-label-margin-bottom: 0.375rem;  // Reduced spacing
+$form-label-font-size: $font-size-sm;
+$form-label-font-weight: $font-weight-medium;
+$form-label-color: $gray-700;
+
+// Form validation
+$form-feedback-font-size: $font-size-sm;
+$form-feedback-valid-color: $success;
+$form-feedback-invalid-color: $danger;
+
+// ============================================================================
+// Tables - Optimized for patient records and data display
+// ============================================================================
+
+// Table general
+$table-cell-padding-y: 0.5rem;     // Compact rows
+$table-cell-padding-x: 0.75rem;
+$table-cell-padding-y-sm: 0.25rem; // Even more compact
+$table-cell-padding-x-sm: 0.5rem;
+
+// Table colors
+$table-bg: transparent;
+$table-accent-bg: $gray-50;         // Very light stripe
+$table-hover-bg: rgba($primary, 0.075); // Subtle hover
+$table-active-bg: $table-hover-bg;
+$table-border-color: $gray-200;     // Subtle borders
+$table-striped-bg: $gray-50;
+$table-striped-color: inherit;
+$table-hover-color: inherit;
+
+// Table head
+$table-head-bg: $gray-100;          // Light header background
+$table-head-color: $gray-800;
+
+// ============================================================================
+// Cards - For patient info, reports, etc.
+// ============================================================================
+
+$card-border-width: 1px;
+$card-border-color: $gray-200;
+$card-border-radius: 0.5rem;
+$card-bg: $white;
+$card-cap-bg: $gray-50;             // Light header/footer
+$card-cap-color: $gray-800;
+$card-cap-padding-y: 0.75rem;       // Compact headers
+$card-cap-padding-x: 1rem;
+$card-spacer-y: 1rem;
+$card-spacer-x: 1rem;
+
+// ============================================================================
+// Buttons - Professional medical interface
+// ============================================================================
+
+$btn-font-weight: $font-weight-medium;
+$btn-border-radius: 0.375rem;
+$btn-border-radius-sm: 0.25rem;
+$btn-border-radius-lg: 0.5rem;
+$btn-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$btn-focus-box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+$btn-active-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+
+// Button sizes - Compact for data entry interfaces
+$btn-padding-y: 0.375rem;
+$btn-padding-x: 0.75rem;
+$btn-font-size: $font-size-base;
+$btn-line-height: $line-height-base;
+
+$btn-padding-y-sm: 0.25rem;
+$btn-padding-x-sm: 0.5rem;
+$btn-font-size-sm: $font-size-sm;
+
+$btn-padding-y-lg: 0.5rem;
+$btn-padding-x-lg: 1rem;
+$btn-font-size-lg: $font-size-lg;
+
+// ============================================================================
+// Navigation - Clean medical interface navigation
+// ============================================================================
+
+// Navbar
+$navbar-padding-y: 0.75rem;         // Compact navbar
+$navbar-padding-x: 1rem;
+$navbar-brand-font-size: 1.125rem;
+$navbar-brand-font-weight: $font-weight-semibold;
+$navbar-nav-link-padding-x: 0.75rem;
+
+// Navbar light theme (default)
+$navbar-light-bg: $white;
+$navbar-light-color: $gray-700;
+$navbar-light-hover-color: $primary;
+$navbar-light-active-color: $primary;
+$navbar-light-brand-color: $gray-900;
+$navbar-light-brand-hover-color: $primary;
+
+// Navbar dark theme
+$navbar-dark-bg: $gray-800;
+$navbar-dark-color: $gray-300;
+$navbar-dark-hover-color: $white;
+$navbar-dark-active-color: $white;
+$navbar-dark-brand-color: $white;
+$navbar-dark-brand-hover-color: $gray-200;
+
+// ============================================================================
+// Alerts - Medical status indicators
+// ============================================================================
+
+$alert-padding-y: 0.75rem;
+$alert-padding-x: 1rem;
+$alert-margin-bottom: 1rem;
+$alert-border-radius: 0.375rem;
+$alert-border-width: 1px;
+
+// ============================================================================
+// Badges - Status indicators for patient info
+// ============================================================================
+
+$badge-font-size: 0.75rem;
+$badge-font-weight: $font-weight-medium;
+$badge-padding-y: 0.25rem;
+$badge-padding-x: 0.5rem;
+$badge-border-radius: 0.25rem;
+
+// ============================================================================
+// Modal - For patient details, forms, etc.
+// ============================================================================
+
+$modal-content-border-color: $gray-200;
+$modal-content-border-radius: 0.5rem;
+$modal-content-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$modal-backdrop-bg: $black;
+$modal-backdrop-opacity: 0.5;
+$modal-header-border-color: $gray-200;
+$modal-header-border-width: 1px;
+$modal-header-padding-y: 1rem;
+$modal-header-padding-x: 1.5rem;
+$modal-body-padding: 1.5rem;
+$modal-footer-border-color: $gray-200;
+$modal-footer-border-width: 1px;
+
+// ============================================================================
+// Progress bars - For loading states, health metrics
+// ============================================================================
+
+$progress-height: 0.75rem;
+$progress-font-size: 0.75rem;
+$progress-bg: $gray-200;
+$progress-border-radius: 0.375rem;
+$progress-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+$progress-bar-color: $white;
+$progress-bar-bg: $primary;
+
+// ============================================================================
+// List group - For patient lists, menu items
+// ============================================================================
+
+$list-group-bg: $white;
+$list-group-border-color: $gray-200;
+$list-group-border-width: 1px;
+$list-group-border-radius: 0.375rem;
+$list-group-item-padding-y: 0.75rem;
+$list-group-item-padding-x: 1rem;
+$list-group-hover-bg: $gray-50;
+$list-group-active-color: $white;
+$list-group-active-bg: $primary;
+$list-group-active-border-color: $primary;
+
+
+// ============================================================================
+// Dropdown - Better padding despite compact spacer
+// ============================================================================
+
+// Since we reduced $spacer to 0.75rem for compact layout,
+// dropdowns became too cramped (0.1875rem vertical padding on items).
+// These overrides restore comfortable padding for dropdowns.
+$dropdown-padding-y: 0.75rem;                    // Container padding (default: 0.5rem)
+$dropdown-item-padding-y: 0.5rem;                // Item vertical padding (default: $spacer * 0.25 = 0.1875rem with our spacer)
+$dropdown-item-padding-x: 1.25rem;               // Item horizontal padding (default: $spacer = 0.75rem)
+
+// ============================================================================
+// Override color contrast settings
+// ============================================================================
+
+// Lower the contrast ratio threshold to allow white text on blue-600
+// Default is 4.5, but blue-600 has 4.09 contrast with white
+$min-contrast-ratio: 3.0;  // Large text WCAG AA compliant
+
+// ============================================================================
+// Dark Mode Configuration
+// ============================================================================
+
+// Enable dark mode color mode
+$color-mode-type: data; // Use data-bs-theme attribute
+
+// ============================================================================
+// Import Bootstrap
+// ============================================================================
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// ============================================================================
+// Dark Mode Overrides
+// ============================================================================
+
+[data-bs-theme="dark"] {
+  // Body
+  --bs-body-color: #{$gray-200};
+  --bs-body-bg: #{$gray-900};
+
+  // Links
+  --bs-link-color: #{lighten($blue-400, 5%)};
+  --bs-link-hover-color: #{lighten($blue-300, 5%)};
+
+  // Borders
+  --bs-border-color: #{$gray-700};
+
+  // Headings
+  --bs-heading-color: #{$gray-100};
+
+  // ============================================================================
+  // Forms - Dark mode inputs
+  // ============================================================================
+
+  --bs-form-valid-color: #{$green-500};
+  --bs-form-invalid-color: #{$red-500};
+
+  // Form controls
+  .form-control,
+  .form-select {
+    background-color: $gray-800;
+    border-color: $gray-700;
+    color: $gray-200;
+
+    &:focus {
+      background-color: $gray-800;
+      border-color: $primary;
+      color: $gray-100;
+      box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+    }
+
+    &::placeholder {
+      color: $gray-500;
+    }
+
+    &:disabled,
+    &[readonly] {
+      background-color: $gray-900;
+      border-color: $gray-700;
+      color: $gray-500;
+    }
+  }
+
+  // Form labels
+  .form-label {
+    color: $gray-300;
+  }
+
+  // Form check (checkboxes/radios)
+  .form-check-input {
+    background-color: $gray-800;
+    border-color: $gray-700;
+
+    &:checked {
+      background-color: $primary;
+      border-color: $primary;
+    }
+
+    &:focus {
+      border-color: $primary;
+      box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+    }
+  }
+
+  // ============================================================================
+  // Tables - Dark mode data tables
+  // ============================================================================
+
+  .table {
+    --bs-table-color: #{$gray-200};
+    --bs-table-bg: #{$gray-900};
+    --bs-table-border-color: #{$gray-700};
+    --bs-table-striped-bg: #{$gray-800};
+    --bs-table-striped-color: #{$gray-200};
+    --bs-table-active-bg: #{rgba($primary, 0.1)};
+    --bs-table-active-color: #{$gray-100};
+    --bs-table-hover-bg: #{rgba($primary, 0.15)};
+    --bs-table-hover-color: #{$gray-100};
+    --bs-table-accent-bg: transparent;
+
+    color: $gray-200;
+    border-color: $gray-700;
+
+    > thead {
+      --bs-table-bg: #{$gray-800};
+      --bs-table-color: #{$gray-100};
+    }
+  }
+
+  // Override .table-light in dark mode
+  .table-light {
+    --bs-table-color: #{$gray-100};
+    --bs-table-bg: #{$gray-800};
+    --bs-table-border-color: #{$gray-700};
+    --bs-table-striped-bg: #{$gray-700};
+    --bs-table-striped-color: #{$gray-100};
+    --bs-table-active-bg: #{rgba($primary, 0.1)};
+    --bs-table-active-color: #{$gray-100};
+    --bs-table-hover-bg: #{rgba($primary, 0.15)};
+    --bs-table-hover-color: #{$white};
+  }
+
+  // ============================================================================
+  // Cards - Dark mode patient info cards
+  // ============================================================================
+
+  .card {
+    --bs-card-bg: #{$gray-800};
+    --bs-card-border-color: #{$gray-700};
+    --bs-card-color: #{$gray-200};
+    --bs-card-cap-bg: #{$gray-900};
+    --bs-card-cap-color: #{$gray-200};
+  }
+
+  // ============================================================================
+  // Buttons - Dark mode buttons
+  // ============================================================================
+
+  .btn-light {
+    --bs-btn-bg: #{$gray-700};
+    --bs-btn-border-color: #{$gray-600};
+    --bs-btn-hover-bg: #{$gray-600};
+    --bs-btn-hover-border-color: #{$gray-500};
+    --bs-btn-active-bg: #{$gray-600};
+    --bs-btn-active-border-color: #{$gray-500};
+    --bs-btn-color: #{$gray-100};
+    --bs-btn-hover-color: #{$white};
+  }
+
+  .btn-outline-light {
+    --bs-btn-color: #{$gray-300};
+    --bs-btn-border-color: #{$gray-600};
+    --bs-btn-hover-bg: #{$gray-700};
+    --bs-btn-hover-color: #{$gray-100};
+  }
+
+  // ============================================================================
+  // Navigation - Dark mode navbar
+  // ============================================================================
+
+  .navbar-light {
+    background-color: $gray-800;
+    border-color: $gray-700;
+
+    .navbar-brand {
+      color: $white;
+
+      &:hover,
+      &:focus {
+        color: $gray-200;
+      }
+    }
+
+    .navbar-nav {
+      .nav-link {
+        color: $gray-300;
+
+        &:hover,
+        &:focus {
+          color: $white;
+        }
+
+        &.active {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  // ============================================================================
+  // Dropdowns - Dark mode menus
+  // ============================================================================
+
+  .dropdown-menu {
+    background-color: $gray-800;
+    border-color: $gray-700;
+
+    .dropdown-item {
+      color: $gray-200;
+
+      &:hover,
+      &:focus {
+        background-color: $gray-700;
+        color: $white;
+      }
+
+      &.active {
+        background-color: $primary;
+        color: $white;
+      }
+
+      &:disabled,
+      &.disabled {
+        color: $gray-500;
+      }
+    }
+
+    .dropdown-divider {
+      border-color: $gray-700;
+    }
+
+    .dropdown-header {
+      color: $gray-400;
+    }
+  }
+
+  // ============================================================================
+  // Modals - Dark mode dialogs
+  // ============================================================================
+
+  .modal-content {
+    background-color: $gray-800;
+    border-color: $gray-700;
+    color: $gray-200;
+
+    .modal-header,
+    .modal-footer {
+      border-color: $gray-700;
+    }
+
+    .modal-header {
+      .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);
+      }
+    }
+  }
+
+  // ============================================================================
+  // Alerts - Dark mode status indicators
+  // ============================================================================
+
+  .alert-primary {
+    background-color: rgba($blue-600, 0.2);
+    border-color: rgba($blue-600, 0.3);
+    color: lighten($blue-400, 10%);
+  }
+
+  .alert-success {
+    background-color: rgba($green-600, 0.2);
+    border-color: rgba($green-600, 0.3);
+    color: lighten($green-500, 10%);
+  }
+
+  .alert-danger {
+    background-color: rgba($red-600, 0.2);
+    border-color: rgba($red-600, 0.3);
+    color: lighten($red-500, 10%);
+  }
+
+  .alert-warning {
+    background-color: rgba($yellow-600, 0.2);
+    border-color: rgba($yellow-600, 0.3);
+    color: lighten($yellow-500, 5%);
+  }
+
+  .alert-info {
+    background-color: rgba($blue-500, 0.2);
+    border-color: rgba($blue-500, 0.3);
+    color: lighten($blue-400, 10%);
+  }
+
+  // ============================================================================
+  // List groups - Dark mode lists
+  // ============================================================================
+
+  .list-group {
+    --bs-list-group-bg: #{$gray-800};
+    --bs-list-group-border-color: #{$gray-700};
+    --bs-list-group-color: #{$gray-200};
+    --bs-list-group-hover-bg: #{$gray-700};
+    --bs-list-group-hover-color: #{$gray-100};
+    --bs-list-group-active-bg: #{$primary};
+    --bs-list-group-active-border-color: #{$primary};
+    --bs-list-group-active-color: #{$white};
+  }
+
+  // ============================================================================
+  // Progress bars - Dark mode
+  // ============================================================================
+
+  .progress {
+    background-color: $gray-700;
+  }
+
+  // ============================================================================
+  // Breadcrumb - Dark mode
+  // ============================================================================
+
+  .breadcrumb {
+    --bs-breadcrumb-divider-color: #{$gray-500};
+
+    .breadcrumb-item {
+      color: $gray-400;
+
+      &.active {
+        color: $gray-200;
+      }
+
+      a {
+        color: $blue-400;
+
+        &:hover {
+          color: $blue-300;
+        }
+      }
+    }
+  }
+
+  // ============================================================================
+  // Pagination - Dark mode
+  // ============================================================================
+
+  .pagination {
+    .page-link {
+      background-color: $gray-800;
+      border-color: $gray-700;
+      color: $gray-300;
+
+      &:hover {
+        background-color: $gray-700;
+        border-color: $gray-600;
+        color: $white;
+      }
+
+      &:focus {
+        background-color: $gray-700;
+        box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+      }
+    }
+
+    .page-item.active .page-link {
+      background-color: $primary;
+      border-color: $primary;
+      color: $white;
+    }
+
+    .page-item.disabled .page-link {
+      background-color: $gray-800;
+      border-color: $gray-700;
+      color: $gray-600;
+    }
+  }
+
+  // ============================================================================
+  // Accordion - Dark mode
+  // ============================================================================
+
+  .accordion {
+    .accordion-item {
+      background-color: $gray-800;
+      border-color: $gray-700;
+
+      .accordion-button {
+        background-color: $gray-800;
+        color: $gray-200;
+
+        &:not(.collapsed) {
+          background-color: $gray-700;
+          color: $white;
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+        }
+
+        &::after {
+          filter: invert(1);
+        }
+      }
+
+      .accordion-body {
+        background-color: $gray-800;
+        color: $gray-200;
+      }
+    }
+  }
+
+  // ============================================================================
+  // Toast - Dark mode
+  // ============================================================================
+
+  .toast {
+    background-color: $gray-800;
+    border-color: $gray-700;
+    color: $gray-200;
+
+    .toast-header {
+      background-color: rgba($gray-900, 0.5);
+      border-bottom-color: $gray-700;
+      color: $gray-200;
+
+      .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);
+      }
+    }
+  }
+
+  // ============================================================================
+  // Offcanvas - Dark mode
+  // ============================================================================
+
+  .offcanvas {
+    background-color: $gray-800;
+    color: $gray-200;
+
+    .offcanvas-header {
+      border-bottom-color: $gray-700;
+
+      .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);
+      }
+    }
+  }
+
+  // ============================================================================
+  // Tooltips & Popovers - Dark mode
+  // ============================================================================
+
+  .tooltip {
+    .tooltip-inner {
+      background-color: $gray-700;
+      color: $white;
+    }
+
+    .tooltip-arrow::before {
+      border-top-color: $gray-700;
+      border-bottom-color: $gray-700;
+      border-left-color: $gray-700;
+      border-right-color: $gray-700;
+    }
+  }
+
+  .popover {
+    background-color: $gray-800;
+    border-color: $gray-700;
+
+    .popover-header {
+      background-color: rgba($gray-900, 0.5);
+      border-bottom-color: $gray-700;
+      color: $gray-200;
+    }
+
+    .popover-body {
+      color: $gray-200;
+    }
+
+    .popover-arrow::before,
+    .popover-arrow::after {
+      border-color: $gray-700;
+    }
+  }
+}
+

@@ -347,12 +347,12 @@ $color-mode-type: data; // Use data-bs-theme attribute
   // Form controls
   .form-control,
   .form-select {
-    background-color: $gray-800;
+    background-color: $gray-900;
     border-color: $gray-700;
     color: $gray-200;
 
     &:focus {
-      background-color: $gray-800;
+      background-color: $gray-900;
       border-color: $primary;
       color: $gray-100;
       box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
@@ -364,9 +364,9 @@ $color-mode-type: data; // Use data-bs-theme attribute
 
     &:disabled,
     &[readonly] {
-      background-color: $gray-900;
-      border-color: $gray-700;
-      color: $gray-500;
+      background-color: $gray-700;
+      border-color: $gray-600;
+      color: $gray-400;
     }
   }
 
@@ -375,9 +375,16 @@ $color-mode-type: data; // Use data-bs-theme attribute
     color: $gray-300;
   }
 
+  // Input group text (matches readonly appearance)
+  .input-group-text {
+    background-color: $gray-700;
+    border-color: $gray-700;
+    color: $gray-400;
+  }
+
   // Form check (checkboxes/radios)
   .form-check-input {
-    background-color: $gray-800;
+    background-color: $gray-900;
     border-color: $gray-700;
 
     &:checked {
@@ -388,6 +395,13 @@ $color-mode-type: data; // Use data-bs-theme attribute
     &:focus {
       border-color: $primary;
       box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+    }
+
+    &:disabled,
+    &[disabled] {
+      background-color: $gray-700;
+      border-color: $gray-600;
+      opacity: 0.5;
     }
   }
 
@@ -437,7 +451,7 @@ $color-mode-type: data; // Use data-bs-theme attribute
     --bs-card-bg: #{$gray-800};
     --bs-card-border-color: #{$gray-700};
     --bs-card-color: #{$gray-200};
-    --bs-card-cap-bg: #{$gray-900};
+    --bs-card-cap-bg: #{$gray-700};
     --bs-card-cap-color: #{$gray-200};
   }
 
@@ -542,15 +556,18 @@ $color-mode-type: data; // Use data-bs-theme attribute
     border-color: $gray-700;
     color: $gray-200;
 
-    .modal-header,
-    .modal-footer {
-      border-color: $gray-700;
-    }
-
     .modal-header {
+      background-color: $gray-700;
+      border-color: $gray-700;
+
       .btn-close {
         filter: invert(1) grayscale(100%) brightness(200%);
       }
+    }
+
+    .modal-footer {
+      background-color: $gray-700;
+      border-color: $gray-700;
     }
   }
 
@@ -601,6 +618,8 @@ $color-mode-type: data; // Use data-bs-theme attribute
     --bs-list-group-active-bg: #{$primary};
     --bs-list-group-active-border-color: #{$primary};
     --bs-list-group-active-color: #{$white};
+    --bs-list-group-disabled-color: #{$gray-500};
+    --bs-list-group-disabled-bg: #{$gray-700};
   }
 
   // ============================================================================
@@ -664,9 +683,10 @@ $color-mode-type: data; // Use data-bs-theme attribute
     }
 
     .page-item.disabled .page-link {
-      background-color: $gray-800;
-      border-color: $gray-700;
-      color: $gray-600;
+      background-color: $gray-700;
+      border-color: $gray-600;
+      color: $gray-500;
+      opacity: 0.6;
     }
   }
 
@@ -680,11 +700,11 @@ $color-mode-type: data; // Use data-bs-theme attribute
       border-color: $gray-700;
 
       .accordion-button {
-        background-color: $gray-800;
+        background-color: $gray-700;
         color: $gray-200;
 
         &:not(.collapsed) {
-          background-color: $gray-700;
+          background-color: $gray-800;
           color: $white;
         }
 
@@ -714,7 +734,7 @@ $color-mode-type: data; // Use data-bs-theme attribute
     color: $gray-200;
 
     .toast-header {
-      background-color: rgba($gray-900, 0.5);
+      background-color: $gray-700;
       border-bottom-color: $gray-700;
       color: $gray-200;
 
@@ -733,6 +753,7 @@ $color-mode-type: data; // Use data-bs-theme attribute
     color: $gray-200;
 
     .offcanvas-header {
+      background-color: $gray-700;
       border-bottom-color: $gray-700;
 
       .btn-close {
@@ -764,7 +785,7 @@ $color-mode-type: data; // Use data-bs-theme attribute
     border-color: $gray-700;
 
     .popover-header {
-      background-color: rgba($gray-900, 0.5);
+      background-color: $gray-700;
       border-bottom-color: $gray-700;
       color: $gray-200;
     }

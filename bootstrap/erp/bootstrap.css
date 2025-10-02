@@ -12274,13 +12274,13 @@ textarea.form-control-lg {
 }
 [data-bs-theme=dark] .form-control,
 [data-bs-theme=dark] .form-select {
-  background-color: #1e293b;
+  background-color: #0f172a;
   border-color: #334155;
   color: #e2e8f0;
 }
 [data-bs-theme=dark] .form-control:focus,
 [data-bs-theme=dark] .form-select:focus {
-  background-color: #1e293b;
+  background-color: #0f172a;
   border-color: #0284c7;
   color: #f1f5f9;
   box-shadow: 0 0 0 0.2rem rgba(2, 132, 199, 0.25);
@@ -12292,15 +12292,20 @@ textarea.form-control-lg {
 [data-bs-theme=dark] .form-control:disabled, [data-bs-theme=dark] .form-control[readonly],
 [data-bs-theme=dark] .form-select:disabled,
 [data-bs-theme=dark] .form-select[readonly] {
-  background-color: #0f172a;
-  border-color: #334155;
-  color: #64748b;
+  background-color: #334155;
+  border-color: #475569;
+  color: #94a3b8;
 }
 [data-bs-theme=dark] .form-label {
   color: #cbd5e1;
 }
+[data-bs-theme=dark] .input-group-text {
+  background-color: #334155;
+  border-color: #334155;
+  color: #94a3b8;
+}
 [data-bs-theme=dark] .form-check-input {
-  background-color: #1e293b;
+  background-color: #0f172a;
   border-color: #334155;
 }
 [data-bs-theme=dark] .form-check-input:checked {
@@ -12310,6 +12315,11 @@ textarea.form-control-lg {
 [data-bs-theme=dark] .form-check-input:focus {
   border-color: #0284c7;
   box-shadow: 0 0 0 0.2rem rgba(2, 132, 199, 0.25);
+}
+[data-bs-theme=dark] .form-check-input:disabled, [data-bs-theme=dark] .form-check-input[disabled] {
+  background-color: #334155;
+  border-color: #475569;
+  opacity: 0.5;
 }
 [data-bs-theme=dark] .table {
   --bs-table-color: #e2e8f0;
@@ -12344,7 +12354,7 @@ textarea.form-control-lg {
   --bs-card-bg: #1e293b;
   --bs-card-border-color: #334155;
   --bs-card-color: #e2e8f0;
-  --bs-card-cap-bg: #0f172a;
+  --bs-card-cap-bg: #334155;
   --bs-card-cap-color: #e2e8f0;
 }
 [data-bs-theme=dark] .btn-light {
@@ -12411,12 +12421,16 @@ textarea.form-control-lg {
   border-color: #334155;
   color: #e2e8f0;
 }
-[data-bs-theme=dark] .modal-content .modal-header,
-[data-bs-theme=dark] .modal-content .modal-footer {
+[data-bs-theme=dark] .modal-content .modal-header {
+  background-color: #334155;
   border-color: #334155;
 }
 [data-bs-theme=dark] .modal-content .modal-header .btn-close {
   filter: invert(1) grayscale(100%) brightness(200%);
+}
+[data-bs-theme=dark] .modal-content .modal-footer {
+  background-color: #334155;
+  border-color: #334155;
 }
 [data-bs-theme=dark] .alert-primary {
   background-color: rgba(2, 132, 199, 0.2);
@@ -12452,6 +12466,8 @@ textarea.form-control-lg {
   --bs-list-group-active-bg: #0284c7;
   --bs-list-group-active-border-color: #0284c7;
   --bs-list-group-active-color: #fff;
+  --bs-list-group-disabled-color: #64748b;
+  --bs-list-group-disabled-bg: #334155;
 }
 [data-bs-theme=dark] .progress {
   background-color: #334155;
@@ -12491,20 +12507,21 @@ textarea.form-control-lg {
   color: #fff;
 }
 [data-bs-theme=dark] .pagination .page-item.disabled .page-link {
-  background-color: #1e293b;
-  border-color: #334155;
-  color: #475569;
+  background-color: #334155;
+  border-color: #475569;
+  color: #64748b;
+  opacity: 0.6;
 }
 [data-bs-theme=dark] .accordion .accordion-item {
   background-color: #1e293b;
   border-color: #334155;
 }
 [data-bs-theme=dark] .accordion .accordion-item .accordion-button {
-  background-color: #1e293b;
+  background-color: #334155;
   color: #e2e8f0;
 }
 [data-bs-theme=dark] .accordion .accordion-item .accordion-button:not(.collapsed) {
-  background-color: #334155;
+  background-color: #1e293b;
   color: #fff;
 }
 [data-bs-theme=dark] .accordion .accordion-item .accordion-button:focus {
@@ -12523,7 +12540,7 @@ textarea.form-control-lg {
   color: #e2e8f0;
 }
 [data-bs-theme=dark] .toast .toast-header {
-  background-color: rgba(15, 23, 42, 0.5);
+  background-color: #334155;
   border-bottom-color: #334155;
   color: #e2e8f0;
 }
@@ -12535,6 +12552,7 @@ textarea.form-control-lg {
   color: #e2e8f0;
 }
 [data-bs-theme=dark] .offcanvas .offcanvas-header {
+  background-color: #334155;
   border-bottom-color: #334155;
 }
 [data-bs-theme=dark] .offcanvas .offcanvas-header .btn-close {
@@ -12555,7 +12573,7 @@ textarea.form-control-lg {
   border-color: #334155;
 }
 [data-bs-theme=dark] .popover .popover-header {
-  background-color: rgba(15, 23, 42, 0.5);
+  background-color: #334155;
   border-bottom-color: #334155;
   color: #e2e8f0;
 }
